@@ -31,6 +31,10 @@ class PriorityQueue<T>(size: Int, val comparator: Comparator<T>? = null) : Colle
         private set
     private var arr: Array<T?> = Array<Comparable<T>?>(size, { null }) as Array<T?>
 
+    init {
+		if (capacity <= 0) throw Error("Invalid capacity: $capacity")
+	}
+
     public fun add(element: T) {
         if (size + 1 == arr.size) {
             resize()
